@@ -1,0 +1,918 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ALANIX — товары для дома</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f7f7f7;
+    color: #222;
+}
+
+/* HEADER */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: white;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+nav a:hover {
+    color: #777;
+}
+
+/* HERO */
+
+.hero {
+    max-width: 1200px;
+    margin: auto;
+    padding: 80px 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #777;
+}
+
+.hero p {
+    color: #666;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    display: inline-block;
+    background: #222;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.hero-button:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+.hero-box {
+    width: 330px;
+    height: 330px;
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 80px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* CATALOG */
+
+.catalog {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 25px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #777;
+    margin-bottom: 35px;
+}
+
+/* SEARCH */
+
+.search-box {
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 20px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+.search-box input:focus {
+    border-color: #999;
+}
+
+/* PRODUCTS */
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.product {
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: 0.25s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.product-image {
+    width: 100%;
+    height: 270px;
+    background: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h3 {
+    font-size: 19px;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    color: #777;
+    font-size: 14px;
+    min-height: 40px;
+}
+
+.price {
+    font-size: 21px;
+    font-weight: bold;
+    margin: 15px 0;
+}
+
+.details-button {
+    width: 100%;
+    padding: 13px;
+    border: none;
+    background: #222;
+    color: white;
+    border-radius: 9px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.details-button:hover {
+    background: #444;
+}
+
+/* REVIEWS */
+
+.reviews {
+    background: white;
+    padding: 70px 25px;
+}
+
+.reviews-container {
+    max-width: 1000px;
+    margin: auto;
+}
+
+.review-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 35px;
+}
+
+.review {
+    background: #f7f7f7;
+    padding: 25px;
+    border-radius: 15px;
+}
+
+.stars {
+    margin-bottom: 12px;
+    font-size: 18px;
+}
+
+.review p {
+    color: #555;
+    line-height: 1.5;
+}
+
+.review-name {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* CONTACTS */
+
+.contacts {
+    max-width: 1000px;
+    margin: auto;
+    padding: 70px 25px;
+    text-align: center;
+}
+
+.contact-list {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.contact {
+    background: white;
+    padding: 20px 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+}
+
+.contact a {
+    color: #222;
+    text-decoration: none;
+}
+
+/* FOOTER */
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer p {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: 2000;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.modal-content {
+    max-width: 900px;
+    margin: 50px auto;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+    animation: showModal 0.2s ease;
+}
+
+@keyframes showModal {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 32px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+.modal-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.modal-image {
+    min-height: 450px;
+    background: #f2f2f2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: contain;
+}
+
+.modal-info {
+    padding: 45px 35px;
+}
+
+.modal-info h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.modal-info .modal-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.modal-price {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.kaspi-button {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: #e60000;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.2s;
+}
+
+.kaspi-button:hover {
+    background: #c90000;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    nav {
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 55px 20px;
+    }
+
+    .hero h1 {
+        font-size: 45px;
+    }
+
+    .hero-box {
+        width: 260px;
+        height: 260px;
+    }
+
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .review-box {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-body {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-image {
+        min-height: 300px;
+    }
+
+    .modal-image img {
+        height: 300px;
+    }
+
+    .modal-info {
+        padding: 30px 20px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="navbar">
+
+        <div class="logo">
+            ALANIX
+        </div>
+
+        <nav>
+            <a href="#home">Главная</a>
+            <a href="#catalog">Каталог</a>
+            <a href="#reviews">Отзывы</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+
+    <div class="hero-text">
+
+        <h1>
+            ALANIX<br>
+            <span>для вашего дома</span>
+        </h1>
+
+        <p>
+            Современные и удобные товары для дома,
+            ухода и повседневных задач.
+        </p>
+
+        <a class="hero-button" href="#catalog">
+            Смотреть товары
+        </a>
+
+    </div>
+
+    <div class="hero-box">
+        🏠
+    </div>
+
+</section>
+
+
+<!-- CATALOG -->
+
+<section class="catalog" id="catalog">
+
+    <h2 class="section-title">
+        Каталог
+    </h2>
+
+    <p class="section-subtitle">
+        Выберите товар, чтобы узнать подробности
+    </p>
+
+    <div class="search-box">
+        <input
+            type="text"
+            id="search"
+            placeholder="🔍 Поиск товара..."
+            oninput="searchProducts()"
+        >
+    </div>
+
+    <div class="products" id="products"></div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section class="reviews" id="reviews">
+
+    <div class="reviews-container">
+
+        <h2 class="section-title">
+            Отзывы
+        </h2>
+
+        <p class="section-subtitle">
+
+    Отзывы покупателей ALANIX
+        </p>
+
+        <div class="review-box">
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Брала в подарок снохе. Все понравилось. Гладит, парит все отлично. Нагревается быстро. Пришел вовремя. Спасибо Каспи и доставщикам. Рекомендую.
+                </p>
+                <div class="review-name">
+                    Татьяна
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Фен понравился, качество отличное. Хорошо сушит волосы, не перегревается. Жене очень понравился.
+                </p>
+                <div class="review-name">
+                    Ергалым
+                </div>
+            </div>
+
+            <div class="review">
+                <div class="stars">★★★★★</div>
+                <p>
+                    Давно хотела приобрести такую вещь. Мне нравится, что аккумулятор съёмный. Довольно таки мощность хорошая. Мусор собирает. Рекомендую.
+                </p>
+                <div class="review-name">
+                    Наталья
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTS -->
+
+<section class="contacts" id="contacts">
+
+    <h2 class="section-title">
+        Контакты
+    </h2>
+
+    <p class="section-subtitle">
+        Свяжитесь с нами
+    </p>
+
+    <div class="contact-list">
+
+        <div class="contact">
+            📱 Телефон:+7 708 575 7696
+        </div>
+
+        <div class="contact">
+            📍 Шымкент
+        </div>
+
+        <div class="contact">
+            🛒 Покупка через Kaspi
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <strong>ALANIX</strong>
+
+    <p>
+        Товары для дома
+    </p>
+
+    <p>
+        © 2026 ALANIX
+    </p>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">
+            ×
+        </span>
+
+        <div class="modal-body">
+
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+
+            <div class="modal-info">
+
+                <h2 id="modalTitle"></h2>
+
+                <p class="modal-description" id="modalDescription"></p>
+
+                <div class="modal-price" id="modalPrice"></div>
+
+                <a
+                    id="kaspiLink"
+                    class="kaspi-button"
+                    href="#"
+                    target="_blank"
+                >
+                    Купить на Kaspi
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* ТОВАРЫ */
+
+const products = [
+
+    {
+        name: "Отпариватель Alanix P9000 золотистый",
+        price: "12 500 ₸",
+        image: "images/Отпариватель.jpeg",
+        description:
+        "Ручной отпариватель Alanix P9000. Мощность 1300 Вт, резервуар 0,2 л, 6 режимов подачи пара. Цвет — золотистый.",
+        kaspi:
+        "https://kaspi.kz/shop/p/otparivatel-alanix-p9000-zolotistyi-172033688/?c=511010000"
+    },
+
+    {
+        name: "Alanix A-015H 0.17 л черный",
+        price: "17 900 ₸",
+        image: "images/Пылесос а15.jpeg",
+        description:
+        "Компактный ручной пылесос Alanix A-015H. Контейнер 0,17 л, HEPA-фильтр, мощность 150 Вт, аккумулятор 2000 мА·ч.",
+        kaspi:
+        "https://kaspi.kz/shop/p/alanix-a-015h-0-17-l-chernyi-144840270/?c=511010000"
+    },
+
+    {
+        name: "Alanix A-016H 0.17 л черный",
+        price: "15 500 ₸",
+        image: "images/Пылесос.jpeg",
+        description:
+        "Многофункциональный ручной пылесос Alanix A-016H. Контейнер 0,17 л, HEPA-фильтр, мощность 150 Вт и аккумулятор 2000 мА·ч.",
+        kaspi:
+        "https://kaspi.kz/shop/p/alanix-a-016h-0-17-l-chernyi-167934093/?c=511010000"
+    },
+
+    {
+        name: "Alanix LY-HS32 стайлер",
+        price: "39 900 ₸",
+        image: "images/Фен.jpeg",
+        description:
+        "Стайлер Alanix LY-HS32. Мощность 1800 Вт, 3 режима работы, 3 уровня нагрева, LCD-дисплей. Цвет — черный/серебряный.",
+        kaspi:
+        "https://kaspi.kz/shop/p/alanix-ly-hs32-stailer-chernyi-serebrjanyi-148631964/?c=511010000"
+    },
+
+    {
+        name: "Мойка высокого давления Alanix 200 бар",
+        price: "33 900 ₸",
+        image: "images/Мойка.jpeg",
+        description:
+        "Аккумуляторная мойка высокого давления Alanix. Максимальное давление — до 200 бар. Подходит для бытового использования.",
+        kaspi:
+        "https://kaspi.kz/shop/p/moika-vysokogo-davlenija-alanix-akkumuljatornyi-200-bar-212357374-143492013/?c=511010000"
+    }
+
+];
+
+
+/* ПОКАЗ ТОВАРОВ */
+
+function displayProducts(list) {
+
+    const container = document.getElementById("products");
+
+    container.innerHTML = "";
+
+    if (list.length === 0) {
+
+        container.innerHTML =
+        "<p style='grid-column:1/-1;text-align:center;color:#777;'>Товар не найден</p>";
+
+        return;
+    }
+
+    list.forEach((product, index) => {
+
+        container.innerHTML += `
+
+        <div class="product">
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=\\'color:#999\\'>Фото не найдено</span>';"
+                >
+
+            </div>
+
+            <div class="product-info">
+
+                <h3>
+                    ${product.name}
+                </h3>
+
+                <p>
+                    ${product.description}
+                </p>
+
+                <div class="price">
+                    ${product.price}
+                </div>
+
+                <button
+                    class="details-button"
+                    onclick="openModal(${index})"
+                >
+                    Подробнее
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+
+/* ПОИСК */
+
+function searchProducts() {
+
+    const text =
+    document.getElementById("search").value.toLowerCase();
+
+    const result =
+    products.filter(product =>
+        product.name.toLowerCase().includes(text)
+    );
+
+    displayProducts(result);
+
+}
+
+
+/* ОТКРЫТЬ ТОВАР */
+
+function openModal(index) {
+
+    const product = products[index];
+
+    document.getElementById("modalImage").src =
+    product.image;
+
+    document.getElementById("modalImage").alt =
+    product.name;
+
+    document.getElementById("modalTitle").textContent =
+    product.name;
+
+    document.getElementById("modalDescription").textContent =
+    product.description;
+
+    document.getElementById("modalPrice").textContent =
+    product.price;
+
+    document.getElementById("kaspiLink").href =
+    product.kaspi;
+
+    document.getElementById("modal").style.display =
+    "block";
+
+    document.body.style.overflow =
+    "hidden";
+}
+
+
+/* ЗАКРЫТЬ ТОВАР */
+
+function closeModal() {
+
+    document.getElementById("modal").style.display =
+    "none";
+
+    document.body.style.overflow =
+    "auto";
+}
+
+
+/* ЗАКРЫТИЕ ПО КЛИКУ ПО ФОНУ */
+
+window.onclick = function(event) {
+
+    const modal =
+    document.getElementById("modal");
+
+    if (event.target === modal) {
+        closeModal();
+    }
+
+}
+
+
+/* ESC */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+
+/* ЗАПУСК */
+
+displayProducts(products);
+
+</script>
+
+</body>
+</html>
